@@ -6,43 +6,52 @@ import AirPollutionChart from "./components/charts/airPollution/AirPollution";
 import FiveDaysWeather from "./components/charts/fiveDaysWeather/FiveDaysWeather";
 import CurrentWeatherTable from "./components/tables/CurrentWeatherTable";
 
-const Title = styled(Typography)({
+const themeColors = {
+  primary: "#263238",
+  secondary: "#ffffff",
+  accent: "#FF6D00",
+  textPrimary: "#000000",
+};
+
+const Title = styled(Typography)(({ theme }) => ({
   textAlign: "center",
   margin: "20px 0",
-  color: "#7a7a7a",
-});
+  color: themeColors.accent,
+}));
 
-const ChartContainer = styled(Box)({
-  background: "#f5f5f5",
+const ChartContainer = styled(Box)(({ theme }) => ({
+  background: themeColors.secondary,
   borderRadius: "8px",
   padding: "20px",
   boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
-});
+  color: themeColors.textPrimary,
+}));
 
 function App() {
   useEffect(() => {
     getUserLocation();
   }, []);
+
   return (
-    <Container>
+    <Container sx={{ backgroundColor: themeColors.primary }}>
       <Title variant="h3">Dashboard Weather</Title>
-      <Grid container spacing={3}>
-        <Grid item xs={12} md={12}>
+      <Grid container spacing={3} alignItems="center" justifyContent="center">
+        <Grid item xs={12} md={6}>
           <ChartContainer>
-            <AirPollutionChart />
             <Typography variant="h6">Air Pollution</Typography>
-          </ChartContainer>
-        </Grid>
-        <Grid item xs={12} md={12}>
-          <ChartContainer>
-            <FiveDaysWeather />
-            <Typography variant="h6">Wind and Temperture</Typography>
+            <AirPollutionChart />
           </ChartContainer>
         </Grid>
         <Grid item xs={12} md={6}>
           <ChartContainer>
-            <CurrentWeatherTable />
+            <Typography variant="h6">Wind and Temperature</Typography>
+            <FiveDaysWeather />
+          </ChartContainer>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <ChartContainer>
             <Typography variant="h6">Current Weather</Typography>
+            <CurrentWeatherTable />
           </ChartContainer>
         </Grid>
       </Grid>

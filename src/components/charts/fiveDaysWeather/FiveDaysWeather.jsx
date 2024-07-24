@@ -70,7 +70,7 @@ const FiveDaysWeather = () => {
         min: 0,
       },
       x: {
-        ticks: { color: "#000" },
+        ticks: { color: "#000000" },
       },
     },
   };

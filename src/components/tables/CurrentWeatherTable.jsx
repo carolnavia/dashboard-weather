@@ -7,6 +7,8 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { flattenObject } from "../../helpers/flattedObject";
+import WbSunnyIcon from "@mui/icons-material/WbSunny";
+import IconButton from "@mui/material/IconButton";
 
 const CurrentWeatherTable = () => {
   const { data, loading, error } = useApiCurrentWeatherData();
@@ -27,12 +29,12 @@ const CurrentWeatherTable = () => {
 
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table sx={{ minWidth: 450 }} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>Icon</TableCell>
-            <TableCell align="right">Parameter</TableCell>
-            <TableCell align="right">Value</TableCell>
+            <TableCell align="left">Parameter</TableCell>
+            <TableCell align="left">Value</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -42,10 +44,12 @@ const CurrentWeatherTable = () => {
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {"icono"}
+                <IconButton color="#FF6D00">
+                  <WbSunnyIcon />
+                </IconButton>
               </TableCell>
-              <TableCell align="right">{name}</TableCell>
-              <TableCell align="right">
+              <TableCell align="left">{name}</TableCell>
+              <TableCell align="left">
                 {key === "weather" ? rows.weather[0].description : rows[key]}
               </TableCell>
             </TableRow>
