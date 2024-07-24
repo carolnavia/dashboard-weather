@@ -1,6 +1,6 @@
 import React from "react";
-import useApiPollution from "../../../hooks/useApiPollution";
-import { transformData, getValuesByKey } from "../../../helpers/transformData";
+import useApiPollution from "hooks/useApiPollution";
+import { transformData, getValuesByKey } from "helpers/transformData";
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -13,7 +13,7 @@ import {
   Legend,
   Filler,
 } from "chart.js";
-import { datesChartPollution } from "../../../helpers/datesPollution";
+import { datesChartPollution } from "helpers/datesPollution";
 
 ChartJS.register(
   CategoryScale,

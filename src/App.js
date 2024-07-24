@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { Container, Box, Typography, Grid } from "@mui/material";
 import { styled } from "@mui/system";
-import { getUserLocation } from "./helpers/getUserLocation";
-import AirPollutionChart from "./components/charts/airPollution/AirPollution";
-import FiveDaysWeather from "./components/charts/fiveDaysWeather/FiveDaysWeather";
-import CurrentWeatherTable from "./components/tables/CurrentWeatherTable";
+import { getUserLocation } from "helpers/getUserLocation";
+import AirPollutionChart from "components/charts/airPollution/AirPollution";
+import FiveDaysWeather from "components/charts/fiveDaysWeather/FiveDaysWeather";
+import CurrentWeatherTable from "components/tables/CurrentWeatherTable";
 
 const themeColors = {
   primary: "#263238",
@@ -15,7 +15,8 @@ const themeColors = {
 
 const Title = styled(Typography)(({ theme }) => ({
   textAlign: "center",
-  margin: "20px 0",
+  margin: "20px ",
+  padding: "20px 0 10px 0",
   color: themeColors.accent,
 }));
 
@@ -33,9 +34,11 @@ function App() {
   }, []);
 
   return (
-    <Container sx={{ backgroundColor: themeColors.primary }}>
+    <Container
+      sx={{ backgroundColor: themeColors.primary, marginBottom: "50px" }}
+    >
       <Title variant="h3">Dashboard Weather</Title>
-      <Grid container spacing={3} alignItems="center" justifyContent="center">
+      <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
           <ChartContainer>
             <Typography variant="h6">Air Pollution</Typography>
@@ -49,7 +52,7 @@ function App() {
           </ChartContainer>
         </Grid>
         <Grid item xs={12} md={6}>
-          <ChartContainer>
+          <ChartContainer sx={{ marginBottom: "20px" }}>
             <Typography variant="h6">Current Weather</Typography>
             <CurrentWeatherTable />
           </ChartContainer>

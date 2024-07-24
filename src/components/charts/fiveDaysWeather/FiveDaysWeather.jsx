@@ -1,4 +1,4 @@
-import useApiFiveDaysWeatherForescast from "../../../hooks/useApiFiveDaysWeatherForescast";
+import useApiFiveDaysWeatherForescast from "hooks/useApiFiveDaysWeatherForescast";
 import {
   Chart as ChartJS,
   CategoryScale,

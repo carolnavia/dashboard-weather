@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { datesPollutionArray } from "../helpers/datesPollution";
+import { datesPollutionArray } from "helpers/datesPollution";
 
 function useApiPollution() {
   const [data, setData] = useState([]);

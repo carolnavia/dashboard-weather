@@ -1,4 +1,4 @@
-import useApiCurrentWeatherData from "../../hooks/useApiCurrentWeatherData";
+import useApiCurrentWeatherData from "hooks/useApiCurrentWeatherData";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -6,9 +6,10 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { flattenObject } from "../../helpers/flattedObject";
-import WbSunnyIcon from "@mui/icons-material/WbSunny";
+import { flattenObject } from "helpers/flattedObject";
+
 import IconButton from "@mui/material/IconButton";
+import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
 
 const CurrentWeatherTable = () => {
   const { data, loading, error } = useApiCurrentWeatherData();
@@ -44,8 +45,8 @@ const CurrentWeatherTable = () => {
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                <IconButton color="#FF6D00">
-                  <WbSunnyIcon />
+                <IconButton color="error">
+                  <WbSunnyOutlinedIcon />
                 </IconButton>
               </TableCell>
               <TableCell align="left">{name}</TableCell>
