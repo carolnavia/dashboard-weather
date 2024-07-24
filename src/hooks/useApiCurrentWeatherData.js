@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function useApiFiveDaysWeatherForescast() {
+function useApiCurrentWeatherData() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -13,7 +13,7 @@ function useApiFiveDaysWeatherForescast() {
   const fetchData = async (lon, lat) => {
     try {
       const response = await fetch(
-        `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_API_KEY}`
       );
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -34,4 +34,4 @@ function useApiFiveDaysWeatherForescast() {
   return { data, loading, error };
 }
 
-export default useApiFiveDaysWeatherForescast;
+export default useApiCurrentWeatherData;

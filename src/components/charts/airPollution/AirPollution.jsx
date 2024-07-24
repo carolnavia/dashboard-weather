@@ -30,14 +30,10 @@ const AirPollutionChart = () => {
   const { data, loading, error } = useApiPollution();
   const airDataTransformed = transformData(data);
 
-  const co = getValuesByKey(airDataTransformed, "co");
   const nh3 = getValuesByKey(airDataTransformed, "nh3");
   const no = getValuesByKey(airDataTransformed, "no");
   const no2 = getValuesByKey(airDataTransformed, "no2");
   const o3 = getValuesByKey(airDataTransformed, "o3");
-  const pm2_5 = getValuesByKey(airDataTransformed, "pm2_5");
-  const pm10 = getValuesByKey(airDataTransformed, "pm10");
-  const so2 = getValuesByKey(airDataTransformed, "so2");
 
   if (loading) {
     return <div>Cargando...</div>;
@@ -94,17 +90,6 @@ const AirPollutionChart = () => {
         pointBorderColor: "brown",
         pointBackgroundColor: "brown",
       },
-      /*   {
-        label: "CO",
-        data: co,
-        tension: 0.5,
-        fill: false,
-        borderColor: "red",
-        backgroundColor: "red",
-        pointRadius: 2,
-        pointBorderColor: "red",
-        pointBackgroundColor: "red",
-      }, */
     ],
   };
 

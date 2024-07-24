@@ -1,5 +1,5 @@
 export function transformData(originalData) {
-  const transformedData = originalData.map((item) => ({
+  return originalData.map((item) => ({
     co: item.list[0].components.co,
     no: item.list[0].components.no,
     no2: item.list[0].components.no2,
@@ -9,13 +9,10 @@ export function transformData(originalData) {
     pm10: item.list[0].components.pm10,
     nh3: item.list[0].components.nh3,
   }));
-  return transformedData;
 }
 
 export function getValuesByKey(array, key) {
-  let values = array.map((objeto) =>
-    objeto.hasOwnProperty(key) ? objeto[key] : undefined
-  );
-  values = values.filter((value) => value !== undefined);
-  return values;
+  return array
+    .map((object) => (object.hasOwnProperty(key) ? object[key] : undefined))
+    .filter((value) => value !== undefined);
 }

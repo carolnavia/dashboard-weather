@@ -10,7 +10,7 @@ function useApiPollution() {
   const lon = locationParsed.longitude;
   const lat = locationParsed.latitude;
 
-  const fetchData = async () => {
+  const fetchData = async (lon, lat) => {
     try {
       const requests = datesPollutionArray.flatMap(({ start, end }) =>
         fetch(
@@ -32,8 +32,8 @@ function useApiPollution() {
   };
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    fetchData(lon, lat);
+  }, [lon, lat]);
 
   return { data, loading, error };
 }

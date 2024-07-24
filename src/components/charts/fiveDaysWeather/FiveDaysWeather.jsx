@@ -25,8 +25,9 @@ ChartJS.register(
 
 const FiveDaysWeather = () => {
   const { data, loading, error } = useApiFiveDaysWeatherForescast();
-  const dtTxtArray = data ? data?.list.map((item) => item?.dt_txt) : [];
-  const tempArray = data ? data?.list.map((item) => item?.main.temp) : [];
+  const dtTxtArray = data && data?.list.map((item) => item?.dt_txt);
+  const tempArray = data && data?.list.map((item) => item?.main.temp);
+  const windArray = data && data?.list.map((item) => item?.wind.speed);
 
   if (loading) {
     return <div>Cargando...</div>;
@@ -39,12 +40,23 @@ const FiveDaysWeather = () => {
     labels: dtTxtArray,
     datasets: [
       {
+        label: "Wind speed",
+        data: windArray,
+        tension: 0.5,
+        fill: false,
+        borderColor: "green",
+        backgroundColor: "green",
+        pointRadius: 2,
+        pointBorderColor: "green",
+        pointBackgroundColor: "green",
+      },
+      {
         label: "Temperture",
         data: tempArray,
         tension: 0.5,
-        fill: false,
+        fill: true,
         borderColor: "red",
-        backgroundColor: "red",
+        backgroundColor: "lightGray",
         pointRadius: 2,
         pointBorderColor: "red",
         pointBackgroundColor: "red",
