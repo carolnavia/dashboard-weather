@@ -56,7 +56,7 @@ const FiveDaysWeather = () => {
         tension: 0.5,
         fill: true,
         borderColor: "red",
-        backgroundColor: "lightGray",
+        backgroundColor: "rgba(255, 0, 0, 0.5)",
         pointRadius: 2,
         pointBorderColor: "red",
         pointBackgroundColor: "red",
